@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <code style="display: flex; width: 100vh; height: 100vh; font-size: 1.5em;"></code>
+                <script>
+                    const code = document.querySelector('code')
+
+                    const handleVisibilityChange = (e) => {
+                                              console.log(e)
+                                              const d = new Date().toLocaleTimeString()
+                                            code.innerText = `${d}: ${e.srcElement} - ${e.type} - ${document.hidden}\n` + code.innerText
+                                        }
+
+                    document.addEventListener('visibilitychange', handleVisibilityChange, false);
+                    document.addEventListener('focus', handleVisibilityChange, false);
+                    document.addEventListener('blur', handleVisibilityChange, false);
+                    window.addEventListener('focus', handleVisibilityChange, false);
+                    window.addEventListener('blur', handleVisibilityChange, false);
+                </script>
+    </body>
+</html>
+
